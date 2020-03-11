@@ -33,32 +33,35 @@
   <a href="#about" align="right">Login</a>
 </div>
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-	
+
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
+
                     <form method="POST">
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">first name</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <input class="input--style-4" type="text" name="first_name" id="first_name">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">last name</label>
-                                    <input class="input--style-4" type="text" name="last_name">
+                                    <input class="input--style-4" type="text" name="last_name" id="last_name">
                                 </div>
                             </div>
                         </div>
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Date of Birth</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
+                                        <input class="input--style-4 js-datepicker" type="text" name="birthday" id="birthday">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
@@ -68,7 +71,7 @@
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input type="radio" checked="checked" name="gender" >
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
@@ -83,13 +86,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" type="email" name="email" id="email">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="text" name="phone" id="phone">
                                 </div>
                             </div>
                         </div>
@@ -97,13 +100,13 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Enrollment No.</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" type="text" name="Enrollment" id="enrollment">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Branch</label>
-                                    <input class="input--style-4" type="text" name="phone">
+                                    <input class="input--style-4" type="text" name="Branch" id="branch">
                                 </div>
                             </div>
                         </div>
@@ -120,14 +123,42 @@
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit" id="btn">Submit</button>
                         </div>
                     </form>
+
+                    <script>
+                      let dataS=[];
+                      const addData=(ev)=>{
+                        ev.preventDefault();
+                        let data={
+                          id:document.getElementById('email').value,
+                          first_name:document.getElementById('first_name').value,
+                          last_name:document.getElementById('last_name').value,
+                          birthday:document.getElementById('birthday').value,
+                          phone:document.getElementById('phone').value,
+                          enrollment:document.getElementById('enrollment').value,
+                          branch:document.getElementById('branch').value,
+
+                        }
+                        dataS.push(data);
+                        document.forms[0].reset();
+
+                        console.warn('added',{dataS});
+                      }
+                      document.addEventListener('DOMContentLoaded',()=>{
+                        document.getElementById('btn').addEventListener('click',addData);
+                      }
+                    );
+                    </script>
+
                 </div>
             </div>
         </div>
     </div>
 
+
+<!-- first_name, last_name, birthday , email ,phone, enrollment, branch -->
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
